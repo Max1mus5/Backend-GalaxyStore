@@ -2,7 +2,6 @@ from fastapi import APIRouter, Depends
 from schemas.user_schema import User as UserSchema
 from services.user_services import UserService
 from fastapi.responses import JSONResponse
-from middlewares.authMiddleware import JWTBearer
 from schemas.user_schema import UserS
 from utils.jwt_manager import create_token
 from utils.getUser import get_current_user
