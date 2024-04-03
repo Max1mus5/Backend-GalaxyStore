@@ -5,3 +5,6 @@ class Product(BaseModel):
     image: str
     price: float
     stock: int
+
+class Product_cart(BaseModel):
+    product_id: int

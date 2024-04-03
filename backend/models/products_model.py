@@ -1,6 +1,7 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from config.database import Base
+from models.cart_model import CartItem
 
 class Products(Base):
     __tablename__ = "products"
@@ -10,7 +11,6 @@ class Products(Base):
     price = Column(Integer)
     stock = Column(Integer)
     image = Column(String)
-    owner_id = Column(Integer, ForeignKey("users.id"))
 
-    owner = relationship("User", back_populates="products")
-    cart = relationship("Cart", back_populates="product")
+    cart = relationship("CartItem", back_populates="product")
+
