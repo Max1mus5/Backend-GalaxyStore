@@ -61,7 +61,7 @@ Para ejecutar el servidor de desarrollo, utiliza el siguiente comando:
 
 ```bash
 cd backend
-uvicorn app.main:app --reload
+uvicorn main:app --reload
 ```
 
 
