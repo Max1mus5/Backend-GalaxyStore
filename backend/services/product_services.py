@@ -24,7 +24,11 @@ class ProductService:
   def get_products(self):
     db = Session()
     products = db.query(Products).all()
+    #reccorrer los productos y solo motrar los que tengan stock > 0
+    products = [product for product in products if product.stock > 0]
     db.close()
+
+    
     return products
 
   def update_product(self, product_data):

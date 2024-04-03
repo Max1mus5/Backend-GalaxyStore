@@ -6,5 +6,8 @@ class Product(BaseModel):
     price: float
     stock: int
 
+class ProductWithIndexSchema(Product):
+    index: int
+
 class Product_cart(BaseModel):
     product_id: int

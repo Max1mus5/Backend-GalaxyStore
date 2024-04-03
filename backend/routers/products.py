@@ -26,7 +26,7 @@ def create_product(product_data: List[Product_Schema], current_user: User = Depe
             
         return created_products
 
-@products_router.get("/get_products/", response_model=List[Product_Schema], status_code=200)
+@products_router.get("/get_products/", status_code=200)
 def get_products(current_user: User = Depends(get_current_user)):
     products = ProductService().get_products()
     return products

@@ -36,11 +36,11 @@ def delete_user(current_user: User = Depends(get_current_user)):
     else:
         return {"message": "User not found"}
 
-@user_router.put("/update_user/", response_model=UserSchema, status_code=200)
+@user_router.put("/update_user/", status_code=200)
 def update_user(user_data: UserSchema, current_user: User = Depends(get_current_user)):
     updated_user = UserService().update_user(user_data=user_data, user_id=current_user.id)
     try:
-        return updated_user
+        return JSONResponse(content={"message":"User updated successfully actual user: "+str(updated_user.username)+" Please Login Again and validate new token"}, status_code=200)
     except Exception as e:
         return e
     
